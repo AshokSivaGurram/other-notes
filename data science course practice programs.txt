@@ -1,0 +1,1143 @@
+1. Practice program: Welcome Message
+---------------------------------
+
+print('Welcome to Data Science Course!')
+
+2. Practice program: Alien's Visit
+----------------------------
+
+name = input("Enter the name: ")
+print("Hello " + name + "! Welcome to our planet Earth.")
+
+3. Practice program: Introducing Artificial Intelligence System
+---------------------------------
+
+name = input("Enter the name: \n")
+creator_name = input("Enter the creator name: \n")
+purpose = input("Enter the purpose: \n")
+memory_size = input("Enter the memory size: \n")
+speed = input("Enter the speed: \n")
+
+print("\nMy Details:")
+print(f"I am {name}, created by {creator_name}, for the purpose of {purpose}.")
+print(f"Memory I consume is around {memory_size} and my speed is {speed} Ghz.")
+
+4. Practice program: News Report Generation
+---------------------------
+
+def get_count(message):
+    count = int(input(message + ": "))
+    if count < 0:
+        print("Invalid input")
+        exit()
+    return count
+
+
+dead_count = get_count("Dead Count")
+injured_count = get_count("Injured Count")
+safe_count = get_count("Safe Count")
+
+print("\nTSUNAMI REPORT OF JAPAN")
+print("\nThe number of people\n")
+print("Dead:{}".format(dead_count))
+print("Injured:{}".format(injured_count))
+print("Safe:{}".format(safe_count))
+
+print("\nPlease help the people who are suffering!!!")
+
+5. Practice program: Stationary Shop
+--------------------------
+
+def get_cost(product):
+    cost = float(input("Cost of "+product+": "))
+    if cost < 0:
+        print("Invalid input")
+        exit()
+    return cost
+    
+a4sheet_cost = get_cost("A4sheet")
+pen_cost = get_cost("pen")
+pencil_cost = get_cost("pencil")
+eraser_cost = get_cost("eraser")
+
+print("\nItems Details")
+
+print("A4sheet:{:.2f}".format(a4sheet_cost))
+print("Pen:{:.2f}".format(pen_cost))
+print("Pencil:{:.2f}".format(pencil_cost))
+print("Eraser:{:.2f}".format(eraser_cost))
+
+6. Practice program: BMI Calculator
+---------------------------------
+
+weight = int(input("Enter the weight of the person(kg):"))
+height = float(input("Enter the height of the person(m):"))
+
+if weight > 0 and height > 0:
+    bmi = weight / (height * height)
+    BMI = round(bmi, 1)
+    
+    if BMI >= 27.5:
+        print("Your BMI is " + str(BMI) + " (High Risk).")
+    elif 23 <= BMI <= 27.4:
+        print("Your BMI is " + str(BMI) + " (Moderate Risk).")
+    elif 18.5 <= BMI <= 22.9:
+        print("Your BMI is " + str(BMI) + " (Low Risk).")
+    elif BMI < 18.5:
+        print("Your BMI is " + str(BMI) + " (Risk of nutritional deficiency diseases).")
+        
+else:
+    print("Provide a valid input")
+
+7. Practice program: Vaccine Details
+------------------------------
+
+while True:
+    total_people = int(input("Enter the total no of people in the area: "))
+    
+    if total_people <= 0:
+        print("Invalid input")
+        break
+    
+    single_dose_count = int(input("Single-dose count: "))
+    
+    if single_dose_count < 0 or single_dose_count > total_people:
+        print("Invalid input")
+        break
+    
+    double_dose_count = int(input("Double-dose count: "))
+    if double_dose_count < 0 or double_dose_count > total_people:
+        print("Invalid input")
+        break
+    
+    if single_dose_count + double_dose_count > total_people:
+        print("Invalid input")
+        break
+    
+    not_vaccinated_count = total_people - (single_dose_count + double_dose_count)
+    total_vaccinated_percentage = (double_dose_count / total_people) * 100
+    
+    print("\nNot vaccinated people count: ",not_vaccinated_count)
+    print("Total vaccinated percentage of people: {:.2f}\n".format(total_vaccinated_percentage))
+    
+    continue_input = input("Do you want to continue (1) for yes (0) for no: ")
+    
+    if continue_input not in ('0','1'):
+        print("Invalid Input")
+        break
+    
+    if continue_input == '0':
+        break
+    
+
+8. Practice program: Factorial of a number
+---------------------------------
+
+number = int(input("Enter a number:"))
+
+if number < 0:
+    print("factorial does not exist for negative numbers")
+    
+else:
+    factorial = 1 
+    for i in range(1, number + 1):
+        factorial = factorial*i 
+        
+    print("Factorial is", factorial)
+        
+
+9. Practice program: Armstrong Number
+----------------------------------
+
+
+n1,n2 = map(int,input("Enter the starting and ending numbers:\n").split(" "))
+
+if n1 < 0 or n2 < 0:
+    print("Starting and ending numbers must be greater than or equal to zero")
+elif n1 > n2:
+    print("Invalid input!! Ending number should be greater than starting number")
+else:
+    armstrongNo =[]
+    
+    for num in range(n1,n2+1):
+        temp=num
+        sum_cubes=0
+        
+        while temp > 0:
+            digit=temp%10
+            sum_cubes+=digit**3
+            temp//=10
+        if sum_cubes==num:
+            armstrongNo.append(num)
+    print(f"Armstrong numbers between {n1} and {n2} are: ")
+    if armstrongNo:
+        for armstrong in armstrongNo:
+            print(armstrong)
+    else:
+        print("There is no Armstrong number between these numbers")
+        
+
+10. Practice program: Window seat or not
+---------------------------------
+
+seats_per_row = int(input("Enter the number of seats per row\n"))
+
+if seats_per_row <= 0:
+    print("Invalid Input")
+else:
+    seats_number = int(input("Enter the seat number\n"))
+    
+    if seats_number <= 0 or seats_number > 11 * seats_per_row:
+        print("Invalid Seat Number")
+    else:
+        if seats_number % seats_per_row == 1 or seats_number % seats_per_row ==0:
+            print("Window Seat")
+        else:
+            print("Not a Window Seat")
+
+
+11. Practice program: Arrange Names
+-----------------------------
+
+count=int(input("Enter the number of names:"))
+name_list=[] 
+if count>0:
+    print("Enter the names:")
+    for i in range(count):
+        name=input()
+        name_list.append(name)
+    name_list.sort(reverse=True)
+    name_list.sort(key=len,reverse=True)
+    print("The sorted name list is:")
+    for name in name_list:
+        print(name)
+else:
+    print("Invalid Input")
+
+     
+ 12. Practice program: Pass or Fail
+-----------------------------
+
+# Input the number of subjects
+num_subjects = int(input("Enter the no. of subjects: "))
+
+# Check for invalid number of subjects
+if num_subjects <= 0:
+    print("Invalid no. of subjects")
+    exit()
+
+# Initialize counters for passed and failed subjects
+passed_count = 0
+failed_count = 0
+
+print("Enter the marks:")
+
+# Iterate through each subject's mark
+for _ in range(num_subjects):
+    mark = int(input())
+
+    # Check for invalid marks
+    if mark < 0 or mark > 100:
+        print("Invalid mark")
+        exit()
+
+    # Count passed and failed subjects
+    if mark > 50:
+        passed_count += 1
+    else:
+        failed_count += 1
+
+# Output the count of passed and failed subjects
+print("No. of subjects passed:", passed_count)
+print("No. of subjects failed:", failed_count)
+ 
+13. Practice program: Create Quarters
+--------------------------------
+
+# Create a tuple containing the names of all 12 months
+months = (
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+)
+
+# Display months in expanded form
+print("Months in expanded form:")
+for month in months:
+    print(month)
+
+# Slice the 'months' tuple into four quarters
+first_quarter = months[:3]
+second_quarter = months[3:6]
+third_quarter = months[6:9]
+fourth_quarter = months[9:]
+
+# Display the four quarters
+print("\nThe four quarters are:\n")
+print("First Quarter :")
+for month in first_quarter:
+    print(month)
+
+print("\nSecond Quarter :")
+for month in second_quarter:
+    print(month)
+
+print("\nThird Quarter :")
+for month in third_quarter:
+    print(month)
+
+print("\nFourth Quarter :")
+for month in fourth_quarter:
+    print(month)
+ 
+14. Practice program: Unique and Sorted Words
+--------------------------------
+
+# Accept the input string from the user
+input_string = input("Enter the string:\n")
+
+# Split the input string into words/numbers and convert to lowercase
+words = input_string.lower().split()
+
+# Use set to remove duplicates and then convert back to list for sorting
+unique_words = sorted(set(words))
+
+# Join the sorted words/numbers into a single string
+output_string = ' '.join(unique_words)
+
+# Print the output string
+
+print(output_string)
+ 
+
+15. Practice program: Simple Word dictionary
+-----------------------------
+
+def main():
+    word_dictionary={}
+    while True:
+        word=input("Enter the word:\n")
+        num_meanings=int(input("Enter the no of meanings:\n"))
+        if (num_meanings<=0):
+            print("Invalid Input")
+            
+            return
+        meanings=[]
+        print("Enter the meanings:\n")
+        for _ in range(num_meanings):
+            meaning=input()
+            meanings.append(meaning)
+        word_dictionary[word]=meanings
+        choice=input("\nDo you want to add one more elements to the dictionary? If yes, press 1, else press 0: ")
+        if choice=='0':
+            display_word(word_dictionary)
+            break
+        elif choice!='1':
+            print("Invalid Input")
+            display_word(word_dictionary)
+            break
+        
+def display_word(word_dictionary):
+    print("Here's the dictionary you've created:")
+    for word,meanings in word_dictionary.items():
+        print(f"{word}:{meanings}")
+        
+if __name__=='__main__':
+    main()
+
+16. Practice program: State-wise Enrollment
+----------------------------------------
+
+# Step 1: Get the number of participants from the user
+n = int(input("Enter the no of participants details to be created: "))
+
+# Step 2: Create an empty list to store participant details
+participant_list = []
+
+# Step 3: Get participant details if the number of participants is greater than 0
+if n > 0:
+    for i in range(n):
+        # Step 4: Get name, state, and age from the user
+        name = input("Name: ")
+        state = input("State: ")
+        age = int(input("Age: "))
+
+        # Step 5: Validate age and append details to participant list
+        if age <= 10 or age > 80:
+            print("Invalid input")
+            continue
+
+        participant = {"Name": name, "State": state, "Age": age}
+        participant_list.append(participant)
+
+    # Step 6: Display participant details
+    print("\nHere's the list of participants' details:")
+    for participant in participant_list:
+        print(participant)
+
+    # Step 7: Count participants from each state
+    state_count = {}
+    for participant in participant_list:
+        state = participant["State"]
+        if state in state_count:
+            state_count[state] += 1
+        else:
+            state_count[state] = 1
+
+    # Step 8: Display state-wise participant count
+    for state, count in state_count.items():
+        print(f"State: {state}  Count: {count}")
+
+# Step 9: Handle invalid input
+else:
+    print("Invalid input")
+ 
+17. Practice program: AEIMA’s Online Courses
+----------------------------------------
+
+# Step 1: Get the number of courses from the user
+num_courses = int(input("Enter the number of courses: "))
+
+# Step 2: Check for invalid number of courses
+if num_courses < 1:
+    print("Invalid no. of courses")
+    exit()
+
+# Initialize a list to store passed courses
+passed_courses = []
+
+# Step 3: Iterate through each course to get name and marks
+for _ in range(num_courses):
+    course_name = input("Enter the name of the subject and marks respectively:")
+    marks = int(input(" "))
+
+    # Step 4: Check for invalid marks
+    if marks < 0 or marks > 100:
+        print("Invalid mark")
+        exit()
+
+    # Step 5: Check if marks are 80% or above
+    if marks >= 80:
+        passed_courses.append((course_name, marks))
+
+# Step 6: Display passed courses
+if passed_courses:
+    print("The courses you have cleared are:")
+    for course, marks in passed_courses:
+        print(f"{course} {marks}")
+else:
+    print("No courses cleared")
+ 
+
+18. Practice program: Password Protection
+----------------------------------
+
+# Step 1: Get the total number of plots
+total_plots = int(input("Enter the total no.of plots: "))
+
+# Step 2: Check for invalid number of plots
+if total_plots <= 0 or total_plots > 20:
+    print("Invalid Input")
+    exit()
+
+# Step 3: Get the plot numbers
+print("Enter the numbers of each plot:")
+
+# Step 4: Collect plot numbers and check for validity
+plots = []
+for _ in range(total_plots):
+    plot = float(input())
+    if plot <= 0:
+        print("Invalid Input")
+        exit()
+    plots.append(plot)
+
+# Step 5: Separate odd and even plot numbers using list comprehension
+odd_plots = [plot for plot in plots if plot % 2 != 0]
+even_plots = [plot for plot in plots if plot % 2 == 0]
+
+# Step 6: Calculate the average of odd and even plot numbers
+average_password = (sum(odd_plots) + sum(even_plots)) / 2
+
+# Step 7: Display the average with 2 decimal places
+print(f"The password for the file is: {average_password:.2f}")
+ 
+
+19. Practice program: Non-Working Doctors
+--------------------------------
+
+# Step 1: Get the size of the first list
+n1 = int(input())
+
+# Step 2: Check for invalid list size
+if n1 <= 0:
+    print("Invalid list size")
+    exit()
+
+# Step 3: Get the elements of the first list
+doctor_ids = []
+for _ in range(n1):
+    id_num = int(input())
+    # Step 4: Check for invalid ID
+    if id_num <= 0:
+        print("Invalid Id")
+        exit()
+    doctor_ids.append(id_num)
+
+# Step 5: Get the size of the second list
+n2 = int(input())
+
+# Step 6: Check for invalid list size
+if n2 <= 0:
+    print("Invalid list size")
+    exit()
+
+# Step 7: Get the elements of the second list
+working_doctor_ids = set()
+for _ in range(n2):
+    id_num = int(input())
+    # Step 8: Check for invalid ID
+    if id_num <= 0:
+        print("Invalid Id")
+        exit()
+    working_doctor_ids.add(id_num)
+
+# Step 9: Find the not working doctors' IDs
+not_working_doctors = [id_num for id_num in doctor_ids if id_num not in working_doctor_ids]
+
+# Step 10: Display the not working doctors' IDs
+print("Not Working Doctors' IDs are:")
+print(' '.join(map(str, not_working_doctors)))
+ 
+
+20. Practice program: Residents' Information
+------------------------------------
+
+# Function to validate age
+def validate_age(age):
+    return 21 <= int(age) <= 58
+
+# Function to validate band
+def validate_band(band):
+    return band in ['A', 'B', 'C', 'D']
+
+# Initialize list of residents
+List_of_Residents = []
+
+# Get number of residents from user
+num_residents = int(input("No of Residents: "))
+
+# Validate number of residents
+if num_residents <= 0:
+    print("Invalid")
+else:
+    # Loop to input resident details
+    for i in range(num_residents):
+        print(f"\nResident {i+1}:")
+        name = input("Name : ")
+        age = input("Age : ")
+        if not validate_age(age):
+            print("Invalid")
+            break
+        designation = input("Designation : ")
+        band = input("Band : ").upper()
+        if not validate_band(band):
+            print("Invalid")
+            break
+        List_of_Residents.append((name, int(age), designation, band))
+
+    else:
+        # Display all residents
+        print("\n('NAME', 'AGE', 'DESIGNATION', 'BAND')")
+        for resident in List_of_Residents:
+            print(resident)
+
+        # Get band of interest from user
+        band_of_interest = input("\nEnter your band of interest : ").strip().upper()
+
+        # Validate band of interest and print residents
+        if not band_of_interest:
+            print("\nEnter your band of interest :")
+        elif not validate_band(band_of_interest):
+            print("Invalid")
+        else:
+            print("\n('NAME', 'AGE', 'DESIGNATION', 'BAND')")
+            found = False
+            for resident in List_of_Residents:
+                if resident[3] == band_of_interest:
+                    print(resident)
+                    found = True
+            if not found:
+                print("No resident under this band")
+ 
+
+
+21. Practice program: Lucky Number 
+-------------------------------
+
+def find_lucky(number):
+    sm = 0
+    while number != 0:
+        temp = number % 10
+        sm += temp
+        number = number // 10
+    if sm % 2 == 0:
+        return 1
+    else:
+        return 0
+
+number = int(input("Enter the Number:"))
+
+if number <= 0:
+    print("Invalid Number")
+else:
+    lucky = find_lucky(number)
+    if lucky == 1:
+        print(str(number) + " is lucky")
+    else:
+        print(str(number) + " is not lucky")
+ 
+
+22. Practice program: Farewell
+------------------------------
+
+# farewell.py
+
+import greet
+
+name = input("Enter the senior's name: ")
+print(greet.message, end=' ')
+greet.greet(name)
+print("Documentation string:", greet.greet.__doc__)
+ 
+
+23. Practice program: Display bars
+---------------------------
+
+# visualize.py
+
+import bars
+
+n1 = int(input("Enter the no. of times '*' should display: "))
+n2 = int(input("Enter the no. of times '-' should display: "))
+n3 = int(input("Enter the no. of times '#' should display: "))
+
+bars.draw_bar(n1, n2, n3)
+ 
+
+24. Practice program: Rhythm Composer
+------------------------------------
+
+def find_prime(start, end):
+    # Check for invalid range
+    if start < 0 or end < 0 or start > end:
+        print("Invalid range")
+        return []
+
+    prime_numbers = []
+
+    # Check each number in the range for primality
+    for num in range(start, end + 1):
+        if num > 1:
+            is_prime = True
+            for i in range(2, num):
+                if num % i == 0:
+                    is_prime = False
+                    break
+            if is_prime:
+                prime_numbers.append(num)
+
+    # Check if no prime numbers were found
+    if not prime_numbers:
+        print("There are no prime numbers in this range")
+    else:
+        print(*prime_numbers)
+
+
+# Input from the user
+start = int(input("Enter the starting number: "))
+end = int(input("Enter the ending number: "))
+
+# Call the function to find prime numbers within the given range
+find_prime(start, end)
+ 
+
+25. Practice program: Concat Strings
+-------------------------------
+
+def concat_string(string1, string2):
+    # Concatenate strings after eliminating the first two characters
+    new_string = string1[2:] + string2[2:]
+    # Calculate the length of the new string
+    new_string_length = len(new_string)
+    # Return the concatenated string and its length
+    return new_string, new_string_length
+
+# Input from the user
+string1 = input("Enter String1:")
+string2 = input("Enter String2:")
+
+# Call the function and unpack the returned values
+concatenated_string, length = concat_string(string1, string2)
+
+# Print the concatenated string and its length
+print("The concatenated string:", concatenated_string)
+print("The length of the new string is:", length)
+ 
+
+26. Practice program: Amoeba Multiplication
+----------------------------------
+
+def fibonacci(month):
+
+    a, b = 0, 1
+    for i in range(month-2):
+        a, b = b, a + b
+
+    return b
+
+# Get input from the user
+month = int(input("Enter the month as numeric value:\n"))
+result=fibonacci(month)
+
+if month<1 or month>12:
+    print("Invalid month")
+else:
+    print("The amoeba size is ",result)
+
+ 
+
+27. Practice program: Percentage of marks - lambda function
+----------------------------------
+
+# Get marks from the user
+subject1 = int(input("Enter marks for subject1: "))
+subject2 = int(input("Enter marks for subject2: "))
+subject3 = int(input("Enter marks for subject3: "))
+
+# Define the lambda function to calculate percentage
+cal = lambda s1, s2, s3: (s1 + s2 + s3) / 3.0
+
+# Calculate percentage using the lambda function
+percentage = cal(subject1, subject2, subject3) 
+
+# Print the percentage
+print("Percentage is", percentage)
+ 
+
+28. Practice program: Funny String
+---------------------------------
+
+def funny_string(string):
+    # Check if the string length is less than 2
+    if len(string) < 2 or len(string) > 50:
+        return "Invalid string"
+    
+    # Calculate the reverse of the string
+    reverse_string = string[::-1]
+    
+    # Check if the string is funny
+    for i in range(1, len(string)):
+        if abs(ord(string[i]) - ord(string[i-1])) != abs(ord(reverse_string[i]) - ord(reverse_string[i-1])):
+            return "Not Funny"
+    
+    return "Funny"
+
+# Get input from the user
+string = input("Enter the string:")
+
+# Call the funny_string function and print the result
+print(funny_string(string))
+ 
+
+29. Practice program: Basket Ball Player Analysis - Numpy array
+-------------------------------------
+
+import numpy as np
+
+# Get John's points for each quarter
+print("Enter John's points for each quarter:")
+john_statistics = np.zeros((4, 4), dtype=int)
+
+for i in range(4):
+    for j in range(4):
+        point = int(input(f"Quarter {i + 1}, Point {j + 1}: "))
+        john_statistics[i][j] = point
+
+# Display John's statistics
+print("\nJohn's Statistics:")
+print(john_statistics)
+
+# Calculate total points scored by John in the first 2 quarters
+total_first_two_quarters = np.sum(john_statistics[:2])
+print("\nTotal points scored by John in the first 2 quarters:", format(total_first_two_quarters, '.2f'))
+
+# Calculate average points scored by John in the last quarter
+average_last_quarter = np.mean(john_statistics[3])
+print("Average points scored by John in the last quarter:", format(average_last_quarter, '.2f'))
+ 
+
+30. Practice program: 1D to 2D Array Conversion - Numpy array
+----------------------------------------------
+
+import numpy as np
+
+pixel_values = []
+print("Enter pixel values for the image (8 values):")
+for i in range(1, 9):
+    value=int(input(f"Pixel {i}: "))
+    while value>256 or value<0:
+        print("Invalid input! Enter a value between 0 and 256")
+        value=int(input(f"Pixel {i}: "))    
+    pixel_values.append(value)    
+                    
+image_matrix = np.array(pixel_values).reshape(2,4)
+
+print("\nOriginal Array:")
+print(np.array(pixel_values))
+
+print("\nImage Matrix (2x4):\n")  
+print(image_matrix)    
+
+top_left_region= image_matrix[:1, :2]
+bottom_right_region= image_matrix[1:, 2:]
+mean_value = np.mean(image_matrix)
+    
+
+    # Display the top-left 2x2 region
+print("\nTop-left 2x2 Region:")
+print(top_left_region)
+
+    # Display the bottom-right 2x2 region
+print("\nBottom-right 2x2 Region:")
+print(bottom_right_region)
+
+print("\nMean value of the pixel values in the Image Matrix: {:.2f}".format(mean_value))
+
+ 
+
+31. Practice program: Weather Analysis - Numpy array
+---------------------------------
+
+import numpy as np
+
+# Get the number of days from the user
+num_days = int(input("Enter the number of days: "))
+
+# Initialize an empty array to store temperature records
+temperatures = np.zeros(num_days, dtype=float)
+
+# Get temperature records for each day
+for i in range(num_days):
+    temperature = float(input(f"Day {i + 1}: "))
+    temperatures[i] = temperature
+
+# Display the temperature records
+print("\nTemperature Records for the City:")
+print(temperatures)
+
+# Calculate the mean temperature
+mean_temperature = np.mean(temperatures)
+
+# Find the day with the highest temperature
+max_temperature_day = np.argmax(temperatures) + 1
+max_temperature = np.max(temperatures)
+
+# Find the day with the lowest temperature
+min_temperature_day = np.argmin(temperatures) + 1
+min_temperature = np.min(temperatures)
+
+# Sort the temperatures and get corresponding day numbers
+sorted_indices = np.argsort(temperatures)
+sorted_temperatures = temperatures[sorted_indices]
+sorted_days = np.arange(1, num_days + 1)[sorted_indices]
+
+# Display results
+print("\nMean Temperature for", num_days, "Days:", format(mean_temperature, '.2f'))
+print("Day with the Highest Temperature: Day", max_temperature_day, "Temperature:", max_temperature)
+print("Day with the Lowest Temperature: Day", min_temperature_day, "Temperature:", min_temperature)
+print("\nDays Sorted by Temperature (Ascending Order):")
+for day, temperature in zip(sorted_days, sorted_temperatures):
+    print("Day", day, "Temperature", temperature)
+ 
+
+32. Practice program: Store Student Data
+------------------------------
+
+# Step 1: Get the number of students from the user
+no = int(input("Enter the number of students: "))
+
+# Step 2: Open the file in write mode to write the details
+with open('output_data.txt', 'w') as file:
+    # Step 3: Obtain the user's name and score for n students and write them into the file
+    for i in range(1, no + 1):
+        print("For student", i)
+        name = input("Enter name: ")
+        score = input("Enter the score: ")
+        data_format = "Name: " + name + " Score: " + score
+        file.write(data_format + "\n")
+
+# Step 4: Read the data from the file and display it
+with open("output_data.txt", "r") as read_file:
+    data = read_file.read()
+    print(data)
+ 
+
+33. Practice program: Read CSV file
+--------------------------------
+
+import csv
+
+# Open the CSV file using DictReader and display the contents of the first 10 rows
+with open('OneDayInternational.csv', mode='r') as file:
+    reader = csv.DictReader(file)
+    row_count = 0
+    for row in reader:
+        if row_count < 10:
+            print(row)
+            row_count += 1
+        else:
+            break
+ 
+
+34. Practice program: Copy the File
+----------------------------------
+
+# Open the input file and read its content
+with open('file_in.txt', 'r') as file_in:
+    # Read the content of file_in.txt
+    content = file_in.read()
+
+# Write the content to the output file file_out.txt
+with open('file_out.txt', 'w') as file_out:
+    # Write the content to file_out.txt
+    file_out.write(content)
+
+# Display the content of file_out.txt
+print(content)
+ 
+
+35. Practice program: Filter the Countries Sachin has Played Against - CSV file
+-------------------------------------------
+
+import csv
+
+# Open the CSV file using DictReader
+with open('OneDayInternational.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+
+    # Create a set to store unique countries
+    countries = set()
+
+    # Iterate through each row in the CSV file
+    for row in reader:
+        # Extract the 'Opposition' field from the row and add it to the set
+        countries.add(row['Versus'])
+
+# Sort the countries alphabetically
+sorted_countries = sorted(countries)
+
+# Display the sorted countries
+for country in sorted_countries:
+    print(country)
+ 
+
+36. Practice program: Calculate year-wise total number of runs of Sachin
+----------------------------------------\
+
+import csv
+
+# Dictionary to store year-wise total runs
+yearly_runs = {}
+
+# Open the CSV file using DictReader
+with open('OneDayInternational.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+
+    # Iterate through each row in the CSV file
+    for row in reader:
+        # Extract the match date from the row
+        match_date = row['MatchDate']
+
+        # Split the match date string and extract the year
+        year = match_date.split('/')[-1]
+
+        # Extract the runs from the row
+        runs = int(row['Runs'])
+
+        # Update the total runs for the corresponding year in the dictionary
+        yearly_runs[year] = yearly_runs.get(year, 0) + runs
+
+# Display the year-wise total runs
+for year, runs in sorted(yearly_runs.items()):
+    print(year, runs)
+ 
+
+37. Practice program: Filter Customers - JSON File
+------------------------------------
+
+import json
+
+# Define a function to filter customers based on loan type
+def filter_customers(loan_type):
+    # Open and read the loan.json file
+    with open('loan.json', 'r') as file:
+        data = json.load(file)
+        customers = data['customers']
+
+        # Initialize a flag to check if customers are available
+        customers_available = False
+
+        # Check if there are customers with the specified loan type
+        for customer in customers:
+            loans = customer['loans']
+            for loan in loans:
+                if loan['loan_type'].lower() == loan_type.lower():
+                    # Print headers only once if customers are available
+                    if not customers_available:
+                        print("Loan Details")
+                        print("Account_Number     Customer_Name   Loan_Amount")
+                        customers_available = True
+                    # Print customer details
+                    print(f"{customer['Account_Number']}    {customer['customer_name']}    {loan['loan_amount']}")
+        
+        # If no customers are found, print appropriate message
+        if not customers_available:
+            print("No customers available")
+
+# Get the loan type from the user
+loan_type = input("Enter the loan type:\n")
+
+# Filter customers based on the loan type provided by the user
+filter_customers(loan_type)
+ 
+
+38. Practice program: Find Sum - Code Analysis
+-------------------------------
+
+def main():
+    print("Enter the value of N")
+    number=int(input())
+    sm=0
+    if number<=0:
+        print("Invalid input")
+    else:
+        for i in range(1,number+1):
+            sm+=i
+            
+        print("The sum of first ", number, "natural numbers is ",sm)
+        
+        
+
+if __name__=="__main__":
+    main()
+    
+
+39. Practice program: Sum the Odd and Even
+------------------------------
+
+def operation(my_tuple):
+    odd_sum = 0
+    even_sum = 0
+    for i in my_tuple:
+        if i % 2 == 0:
+            even_sum = even_sum + i
+        else:
+            odd_sum = odd_sum + i
+    return (even_sum, odd_sum)
+
+my_tuple = (20, 5, 70, 9, 100)
+sum_value = operation(my_tuple)
+
+print("Sum of odd numbers :", sum_value[1])
+print("Sum of even numbers :", sum_value[0])
+ 
+
+40. Practice program: Automorphic Number
+--------------------------------
+
+# Function to check if the number is odd
+def checkOdd(N):
+    if N % 2 != 0:
+        return True
+    else:
+        return False
+
+# Function to check if the number is even
+def checkEven(N):
+    if N % 2 == 0:
+        return True
+    else:
+        return False
+
+# Function to check if the number is automorphic
+def isAutomorphic(N):
+    sq = N * N
+    while N > 0:
+        if N % 10 != sq % 10:
+            return False
+        N //= 10
+        sq //= 10
+    return True
+
+# Driver method
+def main():
+    print("Enter the number:")
+    N = int(input())
+    
+    if checkOdd(N):
+        if isAutomorphic(N):
+            print("Automorphic Number")
+        else:
+            print("Not an Automorphic Number")
+    elif checkEven(N):
+        print("Not an Odd Number")
+        
+    else:
+        print("Not an Even Number")
+
+if __name__ == "__main__":
+    main()
+ 
+
+41. Practice program: List of Lists
+-------------------------
+
+def operation(mylist):
+    sm = 0
+    mx = float('-inf')
+
+    for i in mylist:
+        for j in i:
+            sm+=j 
+            if j>mx:
+                mx=j
+    return mx,sm
+
+# Define the list of lists as 'my_list'
+my_list = [[3, 5, 6], [7, 8, 44], [33, 1, 99]]
+
+# Perform the operation
+value1,value2 = operation(my_list)
+
+# Print the results
+print(value1, "is the Maximum value")
+print(value2, "is the sum")
+ 
+
+42. Practice program: Talent Search Test - Files
+-------------------------------------
+
+name_list = []
+
+with open('student_marks.txt') as file_obj:
+    student_list = file_obj.readlines()
+
+for i in range(1, len(student_list), 2):  # Start from index 1 and iterate every alternate line
+    score = int(student_list[i].strip())  # Strip whitespace and convert to integer
+    if score >= 80:
+        name_list.append(student_list[i - 1].strip())  # Append the name from the previous line
+
+for name in name_list:
+    print(name)
+ 
+
