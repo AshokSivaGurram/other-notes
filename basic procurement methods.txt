@@ -1,0 +1,47 @@
+1. Create a Purchase Requisition (PR)
+Tcode: ME51N
+Description: A Purchase Requisition is a request for the procurement of goods or services. It can be created manually or automatically based on stock levels or requirements.
+Process:
+Enter the material number, quantity, plant, and required date.
+Save the requisition.
+
+2. Create a Request for Quotation (RFQ)
+Tcode: ME41
+Description: The RFQ is sent to vendors for quotation. This is the stage before placing an order with the vendor.
+Process:
+Enter the purchase requisition or manually create the RFQ.
+Add vendor details, material, and quantity.
+Send RFQ to vendors.
+Tcode: ME47 
+Process: 
+Enter RFQ number and supplier number
+Enter the price of each vendor
+Tcode: ME49 
+Description: compare the price and reject some vendors
+
+3. Create a Purchase Order (PO)
+Tcode: ME21N
+Description: A Purchase Order is a formal contract to procure goods or services from a vendor. It can be created based on the PR or RFQ.
+Process:
+Select the appropriate vendor.
+Enter the material and quantity.
+Add conditions like price, delivery terms, etc.
+Save the purchase order.
+
+4. Goods Receipt (GR)
+Tcode: MIGO
+Description: Goods Receipt is the process where physical goods are received and entered into the system.
+Process:
+Select the "Goods Receipt" option.
+Enter the PO number.
+Enter storage location and check item ok check box
+Post the goods receipt.
+
+5. Invoice Receipt (IR)
+Tcode: MIRO
+Description: Invoice Receipt is the process of recording the vendor’s invoice in the system.
+Process:
+Enter the PO number or vendor invoice number.
+Verify the invoice details (quantity, price, etc.).
+Enter the total price in amount box and date in header
+Post the invoice receipt
